@@ -7,43 +7,40 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="form-wrapper">
-    <!-- Form A: Registration -->
-    <div class="form-box form-a">
-      <h2>Create Account</h2>
-      <div class="social-icons">
-        <button>🔵</button>
-        <button>🔴</button>
-        <button>🟢</button>
+  <div class="container">
+    <div class="form-slider">
+      <!-- Group 1: Form A (Register) + Form B (Welcome) -->
+      <div class="form-pair pair-1">
+        <div class="form form-a">
+          <h2>Create Account</h2>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button class="btn">Sign Up</button>
+        </div>
+        <div class="form form-b">
+          <h2>Hello, Friend!</h2>
+          <p>Join us for film nights 🍿</p>
+          <img src="https://via.placeholder.com/200x150?text=🎥" />
+        </div>
       </div>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button class="btn">Sign Up</button>
-    </div>
 
-    <!-- Form B: Welcome -->
-    <div class="form-box form-b">
-      <h2>Welcome!</h2>
-      <p>Join us to explore top-rated movies 🍿🎬</p>
-      <img src="https://via.placeholder.com/200x150?text=🎥+Cartoon" alt="Welcome Illustration">
-    </div>
-
-    <!-- Form C: Login with wave edge -->
-    <div class="form-box form-c">
-      <h2>Welcome Back</h2>
-      <p>Login to continue</p>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button class="btn">Sign In</button>
-      <div class="bottle">🍾</div>
-    </div>
-
-    <!-- Form D: Celebration -->
-    <div class="form-box form-d">
-      <h2>Enjoy the Show</h2>
-      <p>Lights, Camera, Action!</p>
-      <img src="https://via.placeholder.com/200x150?text=🎉+Celebration" alt="Celebration Illustration">
+      <!-- Group 2: Form C (Login w/ Wave) + Form D (Celebration) -->
+      <div class="form-pair pair-2">
+        <div class="form form-c">
+          <h2>Welcome Back</h2>
+          <p>Login to continue</p>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button class="btn">Sign In</button>
+          <div class="bottle">🍾</div>
+        </div>
+        <div class="form form-d">
+          <h2>You're In!</h2>
+          <p>Celebrate your favorite movies 🎉</p>
+          <img src="https://via.placeholder.com/200x150?text=🎉" />
+        </div>
+      </div>
     </div>
   </div>
 
