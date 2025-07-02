@@ -7,41 +7,70 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f3f3f3;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
 }
 
-.form-wrapper {
-  position: relative;
+.container {
   width: 900px;
-  height: 550px;
-  display: flex;
-  border-radius: 20px;
+  height: 500px;
   overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: #fff;
+  position: relative;
 }
 
-/* All form boxes */
-.form-box {
+/* Slider holds both pairs side by side */
+.form-slider {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 1s ease;
+}
+
+/* Each pair = 50% of the full slider */
+.form-pair {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* Each form = 50% of its pair */
+.form {
   width: 50%;
   padding: 40px;
-  transition: all 1s ease;
-  position: absolute;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.form-box h2 {
-  margin-bottom: 20px;
+/* Individual form styles */
+.form-a {
+  background: #ffffff;
 }
 
-.form-box input {
+.form-b {
+  background: #ffe6eb;
+  text-align: center;
+}
+
+.form-c {
+  background: #ff3366;
+  color: white;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+  position: relative;
+}
+
+.form-d {
+  background: #fff5f7;
+  text-align: center;
+}
+
+/* Input/button styling */
+input {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
@@ -49,101 +78,42 @@ body {
 }
 
 .btn {
-  margin-top: 20px;
-  padding: 10px;
+  padding: 12px;
   background: #ff3366;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
-/* Initial States */
-.form-a {
-  left: 0;
-  background: #ffffff;
-  z-index: 4;
-}
-
-.form-b {
-  right: 0;
-  background: #ffe6eb;
-  z-index: 3;
-  text-align: center;
-}
-
-.form-c {
-  left: -100%;
-  background: #ff3366;
-  color: #fff;
-  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
-  z-index: 2;
-}
-
-.form-d {
-  right: -100%;
-  background: #fff5f7;
-  z-index: 1;
-  text-align: center;
-}
-
-/* Animate bottle */
+/* Bottle emoji animation */
 .bottle {
-  margin-top: 20px;
   font-size: 28px;
   opacity: 0;
-}
-
-/* When switched */
-body.switch .form-a {
-  transform: translateX(100%);
-}
-
-body.switch .form-b {
-  transform: translateX(-100%);
-}
-
-body.switch .form-c {
-  transform: translateX(100%);
-}
-
-body.switch .form-d {
-  transform: translateX(-100%);
+  margin-top: 20px;
 }
 
 body.switch .bottle {
-  animation: pop 0.8s ease-in-out forwards;
+  animation: bottlePop 0.8s ease-in-out forwards;
 }
 
-@keyframes pop {
+@keyframes bottlePop {
   0% {
-    opacity: 0;
     transform: translateX(-20px);
+    opacity: 0;
   }
   50% {
-    opacity: 1;
     transform: translateX(10px);
+    opacity: 1;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
-/* Responsive (optional) */
-@media (max-width: 768px) {
-  .form-wrapper {
-    width: 95%;
-    height: auto;
-    flex-direction: column;
-  }
-
-  .form-box {
-    position: static;
-    width: 100%;
-    clip-path: none !important;
-  }
-
-  body.switch .form-box {
-    transform: none !important;
-  }
+/* Sliding animation */
+body.switch .form-slider {
+  transform: translateX(-50%);
 }
