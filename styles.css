@@ -2,137 +2,148 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eee;
   height: 100vh;
   overflow: hidden;
-  position: relative;
 }
 
-.container {
+.form-wrapper {
+  position: relative;
+  width: 900px;
+  height: 550px;
   display: flex;
-  width: 800px;
-  height: 500px;
-  position: relative;
-  overflow: hidden;
-  background: white;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.form-container, .panel-container {
+/* All form boxes */
+.form-box {
   width: 50%;
   padding: 40px;
-  transition: all 0.6s ease-in-out;
+  transition: all 1s ease;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.form-container input {
-  display: block;
-  width: 100%;
-  margin: 15px 0;
+.form-box h2 {
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  margin: 10px 0;
   padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #f0f0f0;
-}
-
-.social-icons button {
-  margin-right: 10px;
-  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 .btn {
   margin-top: 20px;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #ff0066, #ff6699);
-  color: white;
+  padding: 10px;
+  background: #ff3366;
+  color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
 }
 
-/* Wave shape using clip-path for Form C */
-.form-container.alt {
-  position: absolute;
+/* Initial States */
+.form-a {
+  left: 0;
+  background: #ffffff;
+  z-index: 4;
+}
+
+.form-b {
+  right: 0;
+  background: #ffe6eb;
+  z-index: 3;
+  text-align: center;
+}
+
+.form-c {
   left: -100%;
-  top: 0;
   background: #ff3366;
-  color: white;
-  width: 50%;
-  height: 100%;
-  clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0% 100%);
+  color: #fff;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
   z-index: 2;
-  transition: all 0.6s ease-in-out;
 }
 
-/* Form D (Celebration) */
-#formD {
-  position: absolute;
+.form-d {
   right: -100%;
-  top: 0;
-  background: #fff0f5;
-  color: #333;
-  width: 50%;
-  height: 100%;
-  padding: 40px;
-  transition: all 0.6s ease-in-out;
+  background: #fff5f7;
+  z-index: 1;
+  text-align: center;
 }
 
-/* Bottle emoji animation */
+/* Animate bottle */
 .bottle {
-  font-size: 30px;
   margin-top: 20px;
-  animation: pop-bottle 1s ease-in-out forwards;
+  font-size: 28px;
   opacity: 0;
 }
 
-@keyframes pop-bottle {
+/* When switched */
+body.switch .form-a {
+  transform: translateX(100%);
+}
+
+body.switch .form-b {
+  transform: translateX(-100%);
+}
+
+body.switch .form-c {
+  transform: translateX(100%);
+}
+
+body.switch .form-d {
+  transform: translateX(-100%);
+}
+
+body.switch .bottle {
+  animation: pop 0.8s ease-in-out forwards;
+}
+
+@keyframes pop {
   0% {
-    transform: translateX(-10px);
     opacity: 0;
+    transform: translateX(-20px);
   }
   50% {
-    transform: translateX(5px);
     opacity: 1;
+    transform: translateX(10px);
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
   }
 }
 
-/* Toggle Button */
-.toggle-btn {
-  position: absolute;
-  bottom: 20px;
-  background: black;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 10;
-}
+/* Responsive (optional) */
+@media (max-width: 768px) {
+  .form-wrapper {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+  }
 
-/* SWITCH STATE */
-body.switch #formA {
-  transform: translateX(100%);
-}
-body.switch #formB {
-  transform: translateX(-100%);
-}
-body.switch #formC {
-  transform: translateX(100%);
-}
-body.switch #formD {
-  transform: translateX(-100%);
-}
-body.switch .bottle {
-  animation: pop-bottle 1s ease forwards;
+  .form-box {
+    position: static;
+    width: 100%;
+    clip-path: none !important;
+  }
+
+  body.switch .form-box {
+    transform: none !important;
+  }
 }
