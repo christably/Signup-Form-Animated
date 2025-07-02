@@ -3,45 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Registration / Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Animated Form Switch</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div class="container" id="container">
-    <div class="form-container sign-up-container">
-      <form action="#">
-        <h1>Create Account</h1>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
-      </form>
-    </div>
-
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <h1>Sign In</h1>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign In</button>
-      </form>
-    </div>
-
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>Welcome Back</h1>
-          <p>To stay connected with us, please login with your personal info</p>
-          <button class="ghost" id="signIn">Sign In</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1>Hello, Friend!</h1>
-          <p>Enter your details and start your journey with us</p>
-          <button class="ghost" id="signUp">Sign Up</button>
-        </div>
+  <div class="container">
+    <div class="form-container" id="formA">
+      <h2>Sign in use</h2>
+      <div class="social-icons">
+        <button>🔵</button>
+        <button>🔴</button>
+        <button>🔷</button>
       </div>
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <a href="#">Forgot your password?</a>
+      <button class="btn">SIGN IN</button>
+    </div>
+
+    <div class="panel-container" id="formB">
+      <h2>Hello, friend!</h2>
+      <p>Watch and share your best movies</p>
+      <div class="art">🎬 🍿</div>
+    </div>
+
+    <div class="form-container alt" id="formC">
+      <h2>Welcome Back</h2>
+      <p>To keep connected with us please login with your personal info</p>
+      <button class="btn">SIGN IN</button>
+      <div class="bottle">🍾</div>
+    </div>
+
+    <div class="panel-container" id="formD">
+      <div class="celebrate">🤹‍♂️ 🎥 🎉</div>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <button class="toggle-btn" onclick="toggleForms()">Switch</button>
+
+  <script>
+    function toggleForms() {
+      document.body.classList.toggle('switch');
+    }
+  </script>
 </body>
 </html>
